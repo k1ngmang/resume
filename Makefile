@@ -1,20 +1,15 @@
 ELM=elm
-TYPST=typst
 
 ELM_ENTRY=src/Main.elm
+ELM_OUTPUT=elm.js
 
-TYPST_ENTRY=main.typ
-TYPST_OUTPUT=result/main.pdf
+.PHONY: all site clean
 
-.PHONY: all site pdf clean
-
-all: site pdf
+all: site
 
 site:
-	$(ELM) make $(ELM_ENTRY)
-
-pdf:
-	$(TYPST) compile --root . $(TYPST_ENTRY) $(TYPST_OUTPUT)
+	$(ELM) make $(ELM_ENTRY) --output=$(ELM_OUTPUT)
+	python3 build.py
 
 clean:
-	rm -f $(ELM_OUTPUT) $(TYPST_OUTPUT)
+	rm -f $(ELM_OUTPUT)

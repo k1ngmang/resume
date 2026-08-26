@@ -1,9 +1,9 @@
 module Main exposing (main)
 
 import Browser
-import Content exposing (Inline(..), ProjectBlock(..), ProjectItem(..), resume)
-import Html exposing (Html, a, div, h1, h2, p, text)
-import Html.Attributes exposing (href, rel, style, target)
+import Content exposing (Inline(..), Paragraph, bio)
+import Html exposing (Html, a, div, h1, h2, h3, p, text)
+import Html.Attributes exposing (class, href, id, rel, style, target)
 
 
 type alias Model =
@@ -20,7 +20,7 @@ main =
         { init = \_ -> ( (), Cmd.none )
         , update = \_ model -> ( model, Cmd.none )
         , subscriptions = \_ -> Sub.none
-        , view = \_ -> { title = resume.title, body = [ viewPage ] }
+        , view = \_ -> { title = bio.title, body = [ viewPage ] }
         }
 
 
@@ -30,18 +30,19 @@ viewPage =
         [ style "min-height" "100vh"
         , style "background" "#ffffff"
         , style "color" "#111111"
-        , style "font-family" "Georgia, 'Times New Roman', serif"
-        , style "line-height" "1.55"
-        , style "padding" "40px 20px 64px"
+        , style "font-family" "'IBM Plex Sans', system-ui, sans-serif"
+        , style "line-height" "1.6"
+        , style "padding" "48px 20px 80px"
         ]
         [ div
-            [ style "max-width" "920px"
+            [ style "max-width" "760px"
             , style "margin" "0 auto"
             ]
             [ headerBlock
-            , sectionBlock "О себе" [ twoColumn resume.about ]
-            , sectionBlock "Проекты" (List.map viewProject resume.projects)
-            , sectionBlock "Хронология" (List.map viewTimeline resume.timeline)
+            , introBlock
+            , sectionBlock "history" "История" (List.map viewChapter bio.chapters)
+            , sectionBlock "projects" "Проекты" [ viewProjects bio.projects ]
+            , footerBlock
             ]
         ]
 
@@ -49,73 +50,132 @@ viewPage =
 headerBlock : Html Msg
 headerBlock =
     div
-        [ style "padding-bottom" "28px"
-        , style "margin-bottom" "32px"
-        , style "border-bottom" "1px solid #111111"
+        [ style "padding-bottom" "32px"
+        , style "margin-bottom" "36px"
+        , style "border-bottom" "1px solid #e5e5e5"
         ]
         [ h1
-            [ style "margin" "0 0 10px"
-            , style "font-size" "clamp(2.4rem, 6vw, 4.4rem)"
+            [ style "margin" "0 0 14px"
+            , style "font-size" "clamp(2.6rem, 7vw, 4.6rem)"
             , style "font-weight" "600"
             , style "letter-spacing" "-0.04em"
             ]
-            [ text resume.title ]
-        , div [ style "margin-top" "18px", style "display" "flex", style "gap" "14px", style "flex-wrap" "wrap" ]
-            (List.map (\contact -> contactLink contact.label contact.url) resume.contacts)
+            [ text bio.title ]
+        , div [ style "display" "flex", style "gap" "20px", style "flex-wrap" "wrap" ]
+            (List.map (\contact -> contactLink contact.label contact.url) bio.contacts)
+        , navButtons
         ]
 
 
-sectionBlock : String -> List (Html Msg) -> Html Msg
-sectionBlock title content =
-    div [ style "margin-top" "28px" ]
+navButtons : Html Msg
+navButtons =
+    div
+        [ style "display" "flex"
+        , style "gap" "12px"
+        , style "margin-top" "24px"
+        , style "flex-wrap" "wrap"
+        ]
+        [ a [ href "#history", class "btn" ] [ text "[ История ]" ]
+        , a [ href "#projects", class "btn" ] [ text "[ Проекты ]" ]
+        ]
+
+
+introBlock : Html Msg
+introBlock =
+    div
+        [ style "font-size" "1.15rem"
+        , style "line-height" "1.7"
+        , style "max-width" "62ch"
+        , style "margin-bottom" "56px"
+        ]
+        (List.map viewParagraph bio.intro)
+
+
+sectionBlock : String -> String -> List (Html Msg) -> Html Msg
+sectionBlock sectionId title content =
+    div [ id sectionId, style "margin-bottom" "56px" ]
         [ h2
-            [ style "margin" "0 0 14px"
-            , style "font-size" "0.95rem"
+            [ style "margin" "0 0 24px"
+            , style "font-size" "0.9rem"
             , style "font-weight" "700"
             , style "text-transform" "uppercase"
             , style "letter-spacing" "0.12em"
+            , style "color" "#6b6b6b"
             ]
             [ text title ]
         , div [] content
         ]
 
 
-twoColumn : List Content.AboutEntry -> Html Msg
-twoColumn items =
+viewChapter : Content.Chapter -> Html Msg
+viewChapter chapter =
     div
         [ style "display" "grid"
-        , style "grid-template-columns" "repeat(auto-fit, minmax(240px, 1fr))"
-        , style "gap" "14px 28px"
+        , style "grid-template-columns" "150px 1fr"
+        , style "gap" "10px 28px"
+        , style "margin-bottom" "36px"
         ]
-        (List.map pairRow items)
+        [ div
+            [ style "font-size" "0.9rem"
+            , style "font-weight" "600"
+            , style "color" "#6b6b6b"
+            , style "padding-top" "4px"
+            ]
+            [ text chapter.period ]
+        , div [ style "max-width" "62ch" ]
+            [ h3
+                [ style "margin" "0 0 10px"
+                , style "font-size" "1.3rem"
+                , style "font-weight" "600"
+                , style "letter-spacing" "-0.02em"
+                ]
+                [ text chapter.title ]
+            , div [] (List.map viewParagraph chapter.body)
+            ]
+        ]
 
 
-pairRow : Content.AboutEntry -> Html Msg
-pairRow entry =
-    div []
-        [ div [ style "font-size" "0.82rem", style "text-transform" "uppercase", style "letter-spacing" "0.08em", style "margin-bottom" "4px" ]
-            [ text entry.label ]
-        , div [ style "font-size" "1rem", style "color" "#222222" ]
-            [ text entry.value ]
+viewParagraph : Paragraph -> Html Msg
+viewParagraph paragraph =
+    p [ style "margin" "0 0 10px" ] (List.map viewInline paragraph)
+
+
+viewProjects : List Content.Project -> Html Msg
+viewProjects projects =
+    div
+        [ style "display" "grid"
+        , style "grid-template-columns" "repeat(auto-fit, minmax(280px, 1fr))"
+        , style "gap" "18px"
         ]
+        (List.map viewProject projects)
 
 
 viewProject : Content.Project -> Html Msg
 viewProject project =
-    div [ style "margin-bottom" "22px" ]
-        [ h2 [ style "margin" "0 0 8px", style "font-size" "1.25rem", style "font-weight" "600" ] [ text project.title ]
-        , div [ style "max-width" "72ch" ] (List.map viewProjectBlock project.items)
+    div
+        [ style "border" "1px solid #e5e5e5"
+        , style "border-radius" "10px"
+        , style "padding" "24px"
+        , style "display" "flex"
+        , style "flex-direction" "column"
+        , style "justify-content" "space-between"
+        , style "gap" "14px"
         ]
-
-
-viewProjectBlock : Content.ProjectBlock -> Html Msg
-viewProjectBlock block =
-    case block of
-        ProjectParagraph paragraph ->
-            p [ style "margin" "0 0 10px", style "color" "#222222" ] (List.map viewInline paragraph)
-
-        ProjectItems items ->
-            div [ style "margin" "0 0 10px" ] (List.map viewProjectItem items)
+        [ div []
+            [ h3 [ style "margin" "0 0 8px", style "font-size" "1.1rem", style "font-weight" "600" ]
+                [ text project.title ]
+            , p [ style "margin" "0", style "font-size" "0.95rem", style "color" "#3d3d3d" ]
+                [ text project.description ]
+            ]
+        , a
+            [ href project.url
+            , target "_blank"
+            , rel "noreferrer"
+            , class "btn"
+            , style "align-self" "flex-start"
+            ]
+            [ text "[ Перейти ]" ]
+        ]
 
 
 viewInline : Content.Inline -> Html Msg
@@ -135,30 +195,22 @@ viewInline inline =
                 [ text label ]
 
 
-viewProjectItem : Content.ProjectItem -> Html Msg
-viewProjectItem item =
-    case item of
-        ProjectLink label url_ ->
-            div [ style "margin-bottom" "6px" ]
-                [ a
-                    [ href url_
-                    , target "_blank"
-                    , rel "noreferrer"
-                    , style "color" "#3446eb"
-                    , style "text-decoration" "underline"
-                    ]
-                    [ text label ]
-                ]
-
-        ProjectText body ->
-            p [ style "margin" "0 0 6px", style "color" "#222222" ] [ text body ]
-
-
-viewTimeline : Content.TimelineEntry -> Html Msg
-viewTimeline entry =
-    div [ style "display" "grid", style "grid-template-columns" "140px 1fr", style "gap" "12px 24px", style "margin-bottom" "12px" ]
-        [ div [ style "font-size" "0.9rem", style "font-weight" "700" ] [ text entry.period ]
-        , div [ style "max-width" "72ch", style "color" "#222222" ] [ text entry.body ]
+footerBlock : Html Msg
+footerBlock =
+    div
+        [ style "margin-top" "64px"
+        , style "padding-top" "28px"
+        , style "border-top" "1px solid #e5e5e5"
+        , style "display" "flex"
+        , style "flex-wrap" "wrap"
+        , style "gap" "20px"
+        , style "justify-content" "space-between"
+        , style "align-items" "center"
+        ]
+        [ div [ style "font-size" "0.95rem", style "color" "#6b6b6b" ]
+            [ text "ссылки ->" ]
+        , div [ style "display" "flex", style "gap" "20px", style "flex-wrap" "wrap" ]
+            (List.map (\contact -> contactLink contact.label contact.url) bio.contacts)
         ]
 
 

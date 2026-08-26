@@ -2,16 +2,51 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Main</title>
-  <style>body { padding: 0; margin: 0; }</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>k1ngmang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { padding: 0; margin: 0; }
+
+    .btn {
+      display: inline-block;
+      background: #111111;
+      color: #ffffff;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+      will-change: transform;
+    }
+
+    .btn:hover {
+      background: #ffffff;
+      color: #111111;
+      box-shadow: inset 0 0 0 1px #111111;
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0) scale(0.97);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid #3446eb;
+      outline-offset: 2px;
+    }
+  </style>
 </head>
 
 <body>
 
-<pre id="elm"></pre>
+<div id="elm"></div>
 
 <script>
-try {
 (function(scope){
 'use strict';
 
@@ -4464,6 +4499,115 @@ var $elm$core$Set$toList = function (_v0) {
 var $elm$core$Basics$EQ = {$: 'EQ'};
 var $elm$core$Basics$GT = {$: 'GT'};
 var $elm$core$Basics$LT = {$: 'LT'};
+var $author$project$Content$Link = F2(
+	function (a, b) {
+		return {$: 'Link', a: a, b: b};
+	});
+var $author$project$Content$Plain = function (a) {
+	return {$: 'Plain', a: a};
+};
+var $author$project$Content$bio = {
+	chapters: _List_fromArray(
+		[
+			{
+			body: _List_fromArray(
+				[
+					_List_fromArray(
+					[
+						$author$project$Content$Plain('Я начал программировать на scratch в возрасте 10 лет. Участвовал в разных мероприятиях и конкурсах, где занимал призовые места. Данный опыт помог мне понять, что такое программирование и нравится ли оно мне')
+					])
+				]),
+			period: '2018 – 2020',
+			title: 'Scratch и первые шаги'
+		},
+			{
+			body: _List_fromArray(
+				[
+					_List_fromArray(
+					[
+						$author$project$Content$Plain('Перешёл на java (а точнее даже на processing), но интерес к играм после скретча никуда не исчез: я продолжил их писать. Через некоторое время я смог получить первые деньги благодаря разработке на processing под заказ')
+					])
+				]),
+			period: '2020 – 2022',
+			title: 'Java и разработка игр'
+		},
+			{
+			body: _List_fromArray(
+				[
+					_List_fromArray(
+					[
+						$author$project$Content$Plain('Меня заинтересовала разработка веб-приложений и компиляторов. Я писал интерпретаторы и компиляторы под Wiring, JVM и другие платформы, а также был мейнтейнером в сообществе '),
+						A2($author$project$Content$Link, 'TheAlgorithms', 'https://github.com/TheAlgorithms'),
+						$author$project$Content$Plain(' (алгоритмы на Kotlin) и создал '),
+						A2($author$project$Content$Link, 'репозиторий', 'https://github.com/dlangalgorithms/algorithms'),
+						$author$project$Content$Plain(' с алгоритмами на D.')
+					]),
+					_List_fromArray(
+					[
+						$author$project$Content$Plain('Главный проект этого периода — язык '),
+						A2($author$project$Content$Link, 'Ixion', 'https://github.com/ixionlang/ixion'),
+						$author$project$Content$Plain(': статически типизированный язык с алгебраическими типами данных, который компилируется в байткод JVM. Реализовал парсер, систему типов и генерацию кода.')
+					]),
+					_List_fromArray(
+					[
+						$author$project$Content$Plain('Один из моих языков ('),
+						A2($author$project$Content$Link, 'Lazurite', 'https://github.com/k1ngmang/lazurite'),
+						$author$project$Content$Plain(') был добавлен на платформу Gitflic, а ещё я внёс вклад в '),
+						A2($author$project$Content$Link, 'Neva', 'https://github.com/nevalang/neva'),
+						$author$project$Content$Plain(' (фронтенд компилятора).')
+					])
+				]),
+			period: '2022 – 2025',
+			title: 'Компиляторы и языки'
+		},
+			{
+			body: _List_fromArray(
+				[
+					_List_fromArray(
+					[
+						$author$project$Content$Plain('Летом 2025 года я начал переход с Java на Go для бэкенд-разработки. Из последних проектов — '),
+						A2($author$project$Content$Link, 'Zont', 'https://github.com/k1ngmang/zont'),
+						$author$project$Content$Plain(', движок на Go, который рендерит 3D-модели прямо в консоли.')
+					]),
+					_List_fromArray(
+					[
+						$author$project$Content$Plain('В 2025-2026 годах мне довелось поучаствовать в PROD (международная олимпиада по промышленной разработке), где я познакомился с кучей классных людей и процессами реальных it-компаний')
+					]),
+					_List_fromArray(
+					[
+						$author$project$Content$Plain('Я по-прежнему интересуюсь разработкой языков программирования (в частности зависимыми типами и суперкомпиляцией), продолжаю изучать функциональное программирование, при помощи haskell, elixir и gleam, совершенствую свои скиллы в бекенде, изучаю system design. ')
+					])
+				]),
+			period: '2025 – 2026',
+			title: 'Go, движки и новые языки'
+		}
+		]),
+	contacts: _List_fromArray(
+		[
+			{label: 'GitHub', url: 'https://github.com/k1ngmang'},
+			{label: 'Telegram', url: 'https://t.me/k1ngmang'},
+			{label: 'LinkedIn', url: 'https://www.linkedin.com/in/k1ngmang'}
+		]),
+	intro: _List_fromArray(
+		[
+			_List_fromArray(
+			[
+				$author$project$Content$Plain('Привет! Я java/golang разработчик, увлекаюсь бекендом и компиляторами. ')
+			]),
+			_List_fromArray(
+			[
+				$author$project$Content$Plain('')
+			])
+		]),
+	projects: _List_fromArray(
+		[
+			{description: 'Статически типизированный язык программирования с алгебраическими типами данных, компилирующийся в байткод JVM.', title: 'Ixion', url: 'https://github.com/ixionlang/ixion'},
+			{description: 'Интерпретируемый язык программирования, в возможностью компиляции в pihta (lisp под jvm). Первый и единственный (пока что) законченный проект', title: 'Lazurite', url: 'https://github.com/k1ngmang/lazurite'},
+			{description: 'Библиотека для генерации байт-кода jvm на golang.', title: 'Jasgo', url: 'https://github.com/k1ngmang/jasgo'},
+			{description: 'Движок на Go, который рендерит 3D-модели в консоли.', title: 'Zont', url: 'https://github.com/k1ngmang/zont'}
+		]),
+	title: 'k1ngmang'
+};
 var $elm$core$Result$Err = function (a) {
 	return {$: 'Err', a: a};
 };
@@ -5177,133 +5321,6 @@ var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $author$project$Content$Link = F2(
-	function (a, b) {
-		return {$: 'Link', a: a, b: b};
-	});
-var $author$project$Content$Plain = function (a) {
-	return {$: 'Plain', a: a};
-};
-var $author$project$Content$ProjectItems = function (a) {
-	return {$: 'ProjectItems', a: a};
-};
-var $author$project$Content$ProjectLink = F2(
-	function (a, b) {
-		return {$: 'ProjectLink', a: a, b: b};
-	});
-var $author$project$Content$ProjectParagraph = function (a) {
-	return {$: 'ProjectParagraph', a: a};
-};
-var $author$project$Content$ProjectText = function (a) {
-	return {$: 'ProjectText', a: a};
-};
-var $author$project$Content$resume = {
-	about: _List_fromArray(
-		[
-			{label: 'Языки', value: 'Java, Go, Kotlin, Processing'},
-			{label: 'Стек', value: 'Spring, Gin, Hibernate, Gorm, PostgreSQL, Kafka, Redis, p5js'}
-		]),
-	contacts: _List_fromArray(
-		[
-			{label: 'GitHub', url: 'https://github.com/k1ngmang'},
-			{label: 'Telegram', url: 'https://t.me/k1ngmang'},
-			{label: 'LinkedIn', url: 'https://www.linkedin.com/in/k1ngmang'}
-		]),
-	projects: _List_fromArray(
-		[
-			{
-			items: _List_fromArray(
-				[
-					$author$project$Content$ProjectParagraph(
-					_List_fromArray(
-						[
-							A2($author$project$Content$Link, 'язык программирования Ixion', 'https://github.com/ixionlang/ixion')
-						])),
-					$author$project$Content$ProjectParagraph(
-					_List_fromArray(
-						[
-							$author$project$Content$Plain('Ixion - это статически типизированный язык с алгебраическими типами данных → байткод JVM.')
-						])),
-					$author$project$Content$ProjectParagraph(
-					_List_fromArray(
-						[
-							$author$project$Content$Plain('Реализовал парсер, систему типов, оптимизации и генерацию кода.')
-						])),
-					$author$project$Content$ProjectParagraph(
-					_List_fromArray(
-						[
-							$author$project$Content$Plain('Синтаксис: Scala + Go.')
-						])),
-					$author$project$Content$ProjectParagraph(
-					_List_fromArray(
-						[
-							$author$project$Content$Plain('Отказ от ООП в пользу мощной системы типов позволил создать')
-						])),
-					$author$project$Content$ProjectParagraph(
-					_List_fromArray(
-						[
-							$author$project$Content$Plain('удобный и безопасный язык, сохранив возможности платформы.')
-						])),
-					$author$project$Content$ProjectParagraph(
-					_List_fromArray(
-						[
-							$author$project$Content$Plain('Помимо Ixion, я участвовал и в других проектах (например, '),
-							A2($author$project$Content$Link, 'Neva', 'https://github.com/nevalang/neva'),
-							$author$project$Content$Plain('), а один из моих языков ('),
-							A2($author$project$Content$Link, 'Lazurite', 'https://github.com/k1ngmang/lazurite'),
-							$author$project$Content$Plain(') был добавлен на платформу Gitflic.')
-						])),
-					$author$project$Content$ProjectParagraph(
-					_List_fromArray(
-						[
-							$author$project$Content$Plain('Другие проекты на эту тему:')
-						])),
-					$author$project$Content$ProjectItems(
-					_List_fromArray(
-						[
-							A2($author$project$Content$ProjectLink, 'tulang', 'https://github.com/kngmng/tulang'),
-							$author$project$Content$ProjectText('(компилятор в JVM, 50 звёзд на GitHub)'),
-							A2($author$project$Content$ProjectLink, 'lino', 'https://github.com/kngmng/lino'),
-							$author$project$Content$ProjectText('(компилятор в Wiring, 33 звезды на GitHub)'),
-							A2($author$project$Content$ProjectLink, 'jasgo', 'https://github.com/k1ngmang/jasgo'),
-							$author$project$Content$ProjectText('(типобезопасная библиотека для написания backend\'а компилятора для JVM, 18 звёзд на GitHub)')
-						]))
-				]),
-			title: 'компиляторы'
-		},
-			{
-			items: _List_fromArray(
-				[
-					$author$project$Content$ProjectParagraph(
-					_List_fromArray(
-						[
-							$author$project$Content$Plain('Некоторое время я был мейнтейнером в '),
-							A2($author$project$Content$Link, 'TheAlgorithms', 'https://github.com/TheAlgorithms'),
-							$author$project$Content$Plain(' (алгоритмы на Kotlin), а также сделал '),
-							A2($author$project$Content$Link, 'репозиторий', 'https://github.com/dlangalgorithms/algorithms'),
-							$author$project$Content$Plain(' для реализации самых алгоритмов на Dlang.')
-						])),
-					$author$project$Content$ProjectParagraph(
-					_List_fromArray(
-						[
-							$author$project$Content$Plain('Из последних проектов, связанных с движками: '),
-							A2($author$project$Content$Link, 'Zont', 'https://github.com/k1ngmang/zont'),
-							$author$project$Content$Plain(' - движок на Go, способный рендерить 3D-модели в консоли')
-						]))
-				]),
-			title: 'алгоритмы и движки'
-		}
-		]),
-	subtitle: '',
-	timeline: _List_fromArray(
-		[
-			{body: 'Я начал программировать на Scratch в возрасте 10 лет. Участвовал в разных мероприятиях и выигрывал призы.', period: '2018 - 2020'},
-			{body: 'Перешёл на Java, но всё ещё интересовался разработкой игр, поэтому занимался их разработкой на Java и Processing. Также некоторое время работал разработчиком игр.', period: '2020 - 2022'},
-			{body: 'Меня заинтересовала разработка веб-приложений и компиляторов. Я писал интерпретаторы и компиляторы под Wiring, JVM и другие платформы. Работал над различными языками программирования. Мои самые популярные проекты: Ixion, Lazurite', period: '2022 - 2025'},
-			{body: 'Я по-прежнему интересуюсь разработкой языков программирования и активно изучаю интересующие меня языки (например, Gleam, D, Neva, Elixir).', period: '2025 - 2026'}
-		]),
-	title: 'Резюме'
-};
 var $elm$html$Html$div = _VirtualDom_node('div');
 var $elm$html$Html$a = _VirtualDom_node('a');
 var $elm$json$Json$Encode$string = _Json_wrap;
@@ -5345,37 +5362,38 @@ var $author$project$Main$contactLink = F2(
 					$elm$html$Html$text(label)
 				]));
 	});
-var $elm$html$Html$h1 = _VirtualDom_node('h1');
-var $author$project$Main$headerBlock = A2(
+var $author$project$Main$footerBlock = A2(
 	$elm$html$Html$div,
 	_List_fromArray(
 		[
-			A2($elm$html$Html$Attributes$style, 'padding-bottom', '28px'),
-			A2($elm$html$Html$Attributes$style, 'margin-bottom', '32px'),
-			A2($elm$html$Html$Attributes$style, 'border-bottom', '1px solid #111111')
+			A2($elm$html$Html$Attributes$style, 'margin-top', '64px'),
+			A2($elm$html$Html$Attributes$style, 'padding-top', '28px'),
+			A2($elm$html$Html$Attributes$style, 'border-top', '1px solid #e5e5e5'),
+			A2($elm$html$Html$Attributes$style, 'display', 'flex'),
+			A2($elm$html$Html$Attributes$style, 'flex-wrap', 'wrap'),
+			A2($elm$html$Html$Attributes$style, 'gap', '20px'),
+			A2($elm$html$Html$Attributes$style, 'justify-content', 'space-between'),
+			A2($elm$html$Html$Attributes$style, 'align-items', 'center')
 		]),
 	_List_fromArray(
 		[
 			A2(
-			$elm$html$Html$h1,
+			$elm$html$Html$div,
 			_List_fromArray(
 				[
-					A2($elm$html$Html$Attributes$style, 'margin', '0 0 10px'),
-					A2($elm$html$Html$Attributes$style, 'font-size', 'clamp(2.4rem, 6vw, 4.4rem)'),
-					A2($elm$html$Html$Attributes$style, 'font-weight', '600'),
-					A2($elm$html$Html$Attributes$style, 'letter-spacing', '-0.04em')
+					A2($elm$html$Html$Attributes$style, 'font-size', '0.95rem'),
+					A2($elm$html$Html$Attributes$style, 'color', '#6b6b6b')
 				]),
 			_List_fromArray(
 				[
-					$elm$html$Html$text($author$project$Content$resume.title)
+					$elm$html$Html$text('ссылки ->')
 				])),
 			A2(
 			$elm$html$Html$div,
 			_List_fromArray(
 				[
-					A2($elm$html$Html$Attributes$style, 'margin-top', '18px'),
 					A2($elm$html$Html$Attributes$style, 'display', 'flex'),
-					A2($elm$html$Html$Attributes$style, 'gap', '14px'),
+					A2($elm$html$Html$Attributes$style, 'gap', '20px'),
 					A2($elm$html$Html$Attributes$style, 'flex-wrap', 'wrap')
 				]),
 			A2(
@@ -5383,79 +5401,83 @@ var $author$project$Main$headerBlock = A2(
 				function (contact) {
 					return A2($author$project$Main$contactLink, contact.label, contact.url);
 				},
-				$author$project$Content$resume.contacts))
+				$author$project$Content$bio.contacts))
 		]));
-var $elm$html$Html$h2 = _VirtualDom_node('h2');
-var $author$project$Main$sectionBlock = F2(
-	function (title, content) {
-		return A2(
-			$elm$html$Html$div,
+var $elm$html$Html$h1 = _VirtualDom_node('h1');
+var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
+var $author$project$Main$navButtons = A2(
+	$elm$html$Html$div,
+	_List_fromArray(
+		[
+			A2($elm$html$Html$Attributes$style, 'display', 'flex'),
+			A2($elm$html$Html$Attributes$style, 'gap', '12px'),
+			A2($elm$html$Html$Attributes$style, 'margin-top', '24px'),
+			A2($elm$html$Html$Attributes$style, 'flex-wrap', 'wrap')
+		]),
+	_List_fromArray(
+		[
+			A2(
+			$elm$html$Html$a,
 			_List_fromArray(
 				[
-					A2($elm$html$Html$Attributes$style, 'margin-top', '28px')
+					$elm$html$Html$Attributes$href('#history'),
+					$elm$html$Html$Attributes$class('btn')
 				]),
 			_List_fromArray(
 				[
-					A2(
-					$elm$html$Html$h2,
-					_List_fromArray(
-						[
-							A2($elm$html$Html$Attributes$style, 'margin', '0 0 14px'),
-							A2($elm$html$Html$Attributes$style, 'font-size', '0.95rem'),
-							A2($elm$html$Html$Attributes$style, 'font-weight', '700'),
-							A2($elm$html$Html$Attributes$style, 'text-transform', 'uppercase'),
-							A2($elm$html$Html$Attributes$style, 'letter-spacing', '0.12em')
-						]),
-					_List_fromArray(
-						[
-							$elm$html$Html$text(title)
-						])),
-					A2($elm$html$Html$div, _List_Nil, content)
-				]));
-	});
-var $author$project$Main$pairRow = function (entry) {
-	return A2(
-		$elm$html$Html$div,
-		_List_Nil,
-		_List_fromArray(
-			[
-				A2(
-				$elm$html$Html$div,
-				_List_fromArray(
-					[
-						A2($elm$html$Html$Attributes$style, 'font-size', '0.82rem'),
-						A2($elm$html$Html$Attributes$style, 'text-transform', 'uppercase'),
-						A2($elm$html$Html$Attributes$style, 'letter-spacing', '0.08em'),
-						A2($elm$html$Html$Attributes$style, 'margin-bottom', '4px')
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text(entry.label)
-					])),
-				A2(
-				$elm$html$Html$div,
-				_List_fromArray(
-					[
-						A2($elm$html$Html$Attributes$style, 'font-size', '1rem'),
-						A2($elm$html$Html$Attributes$style, 'color', '#222222')
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text(entry.value)
-					]))
-			]));
-};
-var $author$project$Main$twoColumn = function (items) {
-	return A2(
-		$elm$html$Html$div,
-		_List_fromArray(
-			[
-				A2($elm$html$Html$Attributes$style, 'display', 'grid'),
-				A2($elm$html$Html$Attributes$style, 'grid-template-columns', 'repeat(auto-fit, minmax(240px, 1fr))'),
-				A2($elm$html$Html$Attributes$style, 'gap', '14px 28px')
-			]),
-		A2($elm$core$List$map, $author$project$Main$pairRow, items));
-};
+					$elm$html$Html$text('[ История ]')
+				])),
+			A2(
+			$elm$html$Html$a,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$href('#projects'),
+					$elm$html$Html$Attributes$class('btn')
+				]),
+			_List_fromArray(
+				[
+					$elm$html$Html$text('[ Проекты ]')
+				]))
+		]));
+var $author$project$Main$headerBlock = A2(
+	$elm$html$Html$div,
+	_List_fromArray(
+		[
+			A2($elm$html$Html$Attributes$style, 'padding-bottom', '32px'),
+			A2($elm$html$Html$Attributes$style, 'margin-bottom', '36px'),
+			A2($elm$html$Html$Attributes$style, 'border-bottom', '1px solid #e5e5e5')
+		]),
+	_List_fromArray(
+		[
+			A2(
+			$elm$html$Html$h1,
+			_List_fromArray(
+				[
+					A2($elm$html$Html$Attributes$style, 'margin', '0 0 14px'),
+					A2($elm$html$Html$Attributes$style, 'font-size', 'clamp(2.6rem, 7vw, 4.6rem)'),
+					A2($elm$html$Html$Attributes$style, 'font-weight', '600'),
+					A2($elm$html$Html$Attributes$style, 'letter-spacing', '-0.04em')
+				]),
+			_List_fromArray(
+				[
+					$elm$html$Html$text($author$project$Content$bio.title)
+				])),
+			A2(
+			$elm$html$Html$div,
+			_List_fromArray(
+				[
+					A2($elm$html$Html$Attributes$style, 'display', 'flex'),
+					A2($elm$html$Html$Attributes$style, 'gap', '20px'),
+					A2($elm$html$Html$Attributes$style, 'flex-wrap', 'wrap')
+				]),
+			A2(
+				$elm$core$List$map,
+				function (contact) {
+					return A2($author$project$Main$contactLink, contact.label, contact.url);
+				},
+				$author$project$Content$bio.contacts)),
+			$author$project$Main$navButtons
+		]));
 var $elm$html$Html$p = _VirtualDom_node('p');
 var $author$project$Main$viewInline = function (inline) {
 	if (inline.$ === 'Plain') {
@@ -5480,109 +5502,66 @@ var $author$project$Main$viewInline = function (inline) {
 				]));
 	}
 };
-var $author$project$Main$viewProjectItem = function (item) {
-	if (item.$ === 'ProjectLink') {
-		var label = item.a;
-		var url_ = item.b;
+var $author$project$Main$viewParagraph = function (paragraph) {
+	return A2(
+		$elm$html$Html$p,
+		_List_fromArray(
+			[
+				A2($elm$html$Html$Attributes$style, 'margin', '0 0 10px')
+			]),
+		A2($elm$core$List$map, $author$project$Main$viewInline, paragraph));
+};
+var $author$project$Main$introBlock = A2(
+	$elm$html$Html$div,
+	_List_fromArray(
+		[
+			A2($elm$html$Html$Attributes$style, 'font-size', '1.15rem'),
+			A2($elm$html$Html$Attributes$style, 'line-height', '1.7'),
+			A2($elm$html$Html$Attributes$style, 'max-width', '62ch'),
+			A2($elm$html$Html$Attributes$style, 'margin-bottom', '56px')
+		]),
+	A2($elm$core$List$map, $author$project$Main$viewParagraph, $author$project$Content$bio.intro));
+var $elm$html$Html$h2 = _VirtualDom_node('h2');
+var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
+var $author$project$Main$sectionBlock = F3(
+	function (sectionId, title, content) {
 		return A2(
 			$elm$html$Html$div,
 			_List_fromArray(
 				[
-					A2($elm$html$Html$Attributes$style, 'margin-bottom', '6px')
+					$elm$html$Html$Attributes$id(sectionId),
+					A2($elm$html$Html$Attributes$style, 'margin-bottom', '56px')
 				]),
 			_List_fromArray(
 				[
 					A2(
-					$elm$html$Html$a,
+					$elm$html$Html$h2,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$href(url_),
-							$elm$html$Html$Attributes$target('_blank'),
-							$elm$html$Html$Attributes$rel('noreferrer'),
-							A2($elm$html$Html$Attributes$style, 'color', '#3446eb'),
-							A2($elm$html$Html$Attributes$style, 'text-decoration', 'underline')
+							A2($elm$html$Html$Attributes$style, 'margin', '0 0 24px'),
+							A2($elm$html$Html$Attributes$style, 'font-size', '0.9rem'),
+							A2($elm$html$Html$Attributes$style, 'font-weight', '700'),
+							A2($elm$html$Html$Attributes$style, 'text-transform', 'uppercase'),
+							A2($elm$html$Html$Attributes$style, 'letter-spacing', '0.12em'),
+							A2($elm$html$Html$Attributes$style, 'color', '#6b6b6b')
 						]),
 					_List_fromArray(
 						[
-							$elm$html$Html$text(label)
-						]))
+							$elm$html$Html$text(title)
+						])),
+					A2($elm$html$Html$div, _List_Nil, content)
 				]));
-	} else {
-		var body = item.a;
-		return A2(
-			$elm$html$Html$p,
-			_List_fromArray(
-				[
-					A2($elm$html$Html$Attributes$style, 'margin', '0 0 6px'),
-					A2($elm$html$Html$Attributes$style, 'color', '#222222')
-				]),
-			_List_fromArray(
-				[
-					$elm$html$Html$text(body)
-				]));
-	}
-};
-var $author$project$Main$viewProjectBlock = function (block) {
-	if (block.$ === 'ProjectParagraph') {
-		var paragraph = block.a;
-		return A2(
-			$elm$html$Html$p,
-			_List_fromArray(
-				[
-					A2($elm$html$Html$Attributes$style, 'margin', '0 0 10px'),
-					A2($elm$html$Html$Attributes$style, 'color', '#222222')
-				]),
-			A2($elm$core$List$map, $author$project$Main$viewInline, paragraph));
-	} else {
-		var items = block.a;
-		return A2(
-			$elm$html$Html$div,
-			_List_fromArray(
-				[
-					A2($elm$html$Html$Attributes$style, 'margin', '0 0 10px')
-				]),
-			A2($elm$core$List$map, $author$project$Main$viewProjectItem, items));
-	}
-};
-var $author$project$Main$viewProject = function (project) {
-	return A2(
-		$elm$html$Html$div,
-		_List_fromArray(
-			[
-				A2($elm$html$Html$Attributes$style, 'margin-bottom', '22px')
-			]),
-		_List_fromArray(
-			[
-				A2(
-				$elm$html$Html$h2,
-				_List_fromArray(
-					[
-						A2($elm$html$Html$Attributes$style, 'margin', '0 0 8px'),
-						A2($elm$html$Html$Attributes$style, 'font-size', '1.25rem'),
-						A2($elm$html$Html$Attributes$style, 'font-weight', '600')
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text(project.title)
-					])),
-				A2(
-				$elm$html$Html$div,
-				_List_fromArray(
-					[
-						A2($elm$html$Html$Attributes$style, 'max-width', '72ch')
-					]),
-				A2($elm$core$List$map, $author$project$Main$viewProjectBlock, project.items))
-			]));
-};
-var $author$project$Main$viewTimeline = function (entry) {
+	});
+var $elm$html$Html$h3 = _VirtualDom_node('h3');
+var $author$project$Main$viewChapter = function (chapter) {
 	return A2(
 		$elm$html$Html$div,
 		_List_fromArray(
 			[
 				A2($elm$html$Html$Attributes$style, 'display', 'grid'),
-				A2($elm$html$Html$Attributes$style, 'grid-template-columns', '140px 1fr'),
-				A2($elm$html$Html$Attributes$style, 'gap', '12px 24px'),
-				A2($elm$html$Html$Attributes$style, 'margin-bottom', '12px')
+				A2($elm$html$Html$Attributes$style, 'grid-template-columns', '150px 1fr'),
+				A2($elm$html$Html$Attributes$style, 'gap', '10px 28px'),
+				A2($elm$html$Html$Attributes$style, 'margin-bottom', '36px')
 			]),
 		_List_fromArray(
 			[
@@ -5591,24 +5570,113 @@ var $author$project$Main$viewTimeline = function (entry) {
 				_List_fromArray(
 					[
 						A2($elm$html$Html$Attributes$style, 'font-size', '0.9rem'),
-						A2($elm$html$Html$Attributes$style, 'font-weight', '700')
+						A2($elm$html$Html$Attributes$style, 'font-weight', '600'),
+						A2($elm$html$Html$Attributes$style, 'color', '#6b6b6b'),
+						A2($elm$html$Html$Attributes$style, 'padding-top', '4px')
 					]),
 				_List_fromArray(
 					[
-						$elm$html$Html$text(entry.period)
+						$elm$html$Html$text(chapter.period)
 					])),
 				A2(
 				$elm$html$Html$div,
 				_List_fromArray(
 					[
-						A2($elm$html$Html$Attributes$style, 'max-width', '72ch'),
-						A2($elm$html$Html$Attributes$style, 'color', '#222222')
+						A2($elm$html$Html$Attributes$style, 'max-width', '62ch')
 					]),
 				_List_fromArray(
 					[
-						$elm$html$Html$text(entry.body)
+						A2(
+						$elm$html$Html$h3,
+						_List_fromArray(
+							[
+								A2($elm$html$Html$Attributes$style, 'margin', '0 0 10px'),
+								A2($elm$html$Html$Attributes$style, 'font-size', '1.3rem'),
+								A2($elm$html$Html$Attributes$style, 'font-weight', '600'),
+								A2($elm$html$Html$Attributes$style, 'letter-spacing', '-0.02em')
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text(chapter.title)
+							])),
+						A2(
+						$elm$html$Html$div,
+						_List_Nil,
+						A2($elm$core$List$map, $author$project$Main$viewParagraph, chapter.body))
 					]))
 			]));
+};
+var $author$project$Main$viewProject = function (project) {
+	return A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				A2($elm$html$Html$Attributes$style, 'border', '1px solid #e5e5e5'),
+				A2($elm$html$Html$Attributes$style, 'border-radius', '10px'),
+				A2($elm$html$Html$Attributes$style, 'padding', '24px'),
+				A2($elm$html$Html$Attributes$style, 'display', 'flex'),
+				A2($elm$html$Html$Attributes$style, 'flex-direction', 'column'),
+				A2($elm$html$Html$Attributes$style, 'justify-content', 'space-between'),
+				A2($elm$html$Html$Attributes$style, 'gap', '14px')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$div,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$elm$html$Html$h3,
+						_List_fromArray(
+							[
+								A2($elm$html$Html$Attributes$style, 'margin', '0 0 8px'),
+								A2($elm$html$Html$Attributes$style, 'font-size', '1.1rem'),
+								A2($elm$html$Html$Attributes$style, 'font-weight', '600')
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text(project.title)
+							])),
+						A2(
+						$elm$html$Html$p,
+						_List_fromArray(
+							[
+								A2($elm$html$Html$Attributes$style, 'margin', '0'),
+								A2($elm$html$Html$Attributes$style, 'font-size', '0.95rem'),
+								A2($elm$html$Html$Attributes$style, 'color', '#3d3d3d')
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text(project.description)
+							]))
+					])),
+				A2(
+				$elm$html$Html$a,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$href(project.url),
+						$elm$html$Html$Attributes$target('_blank'),
+						$elm$html$Html$Attributes$rel('noreferrer'),
+						$elm$html$Html$Attributes$class('btn'),
+						A2($elm$html$Html$Attributes$style, 'align-self', 'flex-start')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text('[ Перейти ]')
+					]))
+			]));
+};
+var $author$project$Main$viewProjects = function (projects) {
+	return A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				A2($elm$html$Html$Attributes$style, 'display', 'grid'),
+				A2($elm$html$Html$Attributes$style, 'grid-template-columns', 'repeat(auto-fit, minmax(280px, 1fr))'),
+				A2($elm$html$Html$Attributes$style, 'gap', '18px')
+			]),
+		A2($elm$core$List$map, $author$project$Main$viewProject, projects));
 };
 var $author$project$Main$viewPage = A2(
 	$elm$html$Html$div,
@@ -5617,9 +5685,9 @@ var $author$project$Main$viewPage = A2(
 			A2($elm$html$Html$Attributes$style, 'min-height', '100vh'),
 			A2($elm$html$Html$Attributes$style, 'background', '#ffffff'),
 			A2($elm$html$Html$Attributes$style, 'color', '#111111'),
-			A2($elm$html$Html$Attributes$style, 'font-family', 'Georgia, \'Times New Roman\', serif'),
-			A2($elm$html$Html$Attributes$style, 'line-height', '1.55'),
-			A2($elm$html$Html$Attributes$style, 'padding', '40px 20px 64px')
+			A2($elm$html$Html$Attributes$style, 'font-family', '\'IBM Plex Sans\', system-ui, sans-serif'),
+			A2($elm$html$Html$Attributes$style, 'line-height', '1.6'),
+			A2($elm$html$Html$Attributes$style, 'padding', '48px 20px 80px')
 		]),
 	_List_fromArray(
 		[
@@ -5627,27 +5695,27 @@ var $author$project$Main$viewPage = A2(
 			$elm$html$Html$div,
 			_List_fromArray(
 				[
-					A2($elm$html$Html$Attributes$style, 'max-width', '920px'),
+					A2($elm$html$Html$Attributes$style, 'max-width', '760px'),
 					A2($elm$html$Html$Attributes$style, 'margin', '0 auto')
 				]),
 			_List_fromArray(
 				[
 					$author$project$Main$headerBlock,
-					A2(
+					$author$project$Main$introBlock,
+					A3(
 					$author$project$Main$sectionBlock,
-					'О себе',
+					'history',
+					'История',
+					A2($elm$core$List$map, $author$project$Main$viewChapter, $author$project$Content$bio.chapters)),
+					A3(
+					$author$project$Main$sectionBlock,
+					'projects',
+					'Проекты',
 					_List_fromArray(
 						[
-							$author$project$Main$twoColumn($author$project$Content$resume.about)
+							$author$project$Main$viewProjects($author$project$Content$bio.projects)
 						])),
-					A2(
-					$author$project$Main$sectionBlock,
-					'Проекты',
-					A2($elm$core$List$map, $author$project$Main$viewProject, $author$project$Content$resume.projects)),
-					A2(
-					$author$project$Main$sectionBlock,
-					'Хронология',
-					A2($elm$core$List$map, $author$project$Main$viewTimeline, $author$project$Content$resume.timeline))
+					$author$project$Main$footerBlock
 				]))
 		]));
 var $author$project$Main$main = $elm$browser$Browser$document(
@@ -5666,14 +5734,18 @@ var $author$project$Main$main = $elm$browser$Browser$document(
 			return {
 				body: _List_fromArray(
 					[$author$project$Main$viewPage]),
-				title: $author$project$Content$resume.title
+				title: $author$project$Content$bio.title
 			};
 		}
 	});
 _Platform_export({'Main':{'init':$author$project$Main$main(
 	$elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));
+</script>
 
-  var app = Elm.Main.init({ node: document.getElementById("elm") });
+<script>
+try
+{
+  Elm.Main.init({ node: document.getElementById("elm") });
 }
 catch (e)
 {
